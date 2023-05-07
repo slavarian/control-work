@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Добавить книгу</title>
+</head>
+<body>
+    <h1>Добавить книгу</h1>
+    <form method="post">
+        <label>Название: <input type="text" name="title" required></label><br>
+        <label>Автор: <input type="text" name="author" required></label><br>
+        <label>Жанр: <input type="text" name="genre" required></label><br>
+        <label>Год: <input type="number" name="year" required></label><br>
+        <label>Издательство: <input type="text" name="publisher" required></label><br>
+        <label>Описание: <textarea name="description" required></textarea></label><br>
+        <button type="submit">Добавить</button>
+    </form>
+    <a href="{{ url_for('profile') }}">Вернуться к списку книг</a>
+</body>
+</html>

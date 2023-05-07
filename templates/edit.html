@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Редактировать книгу</title>
+    <style>
+        body{
+    align-items: center;
+    background:  #8787e2;
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    background-size: 100% 100%;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+    </style>
+</head>
+<body>
+    <h1>Редактировать книгу</h1>
+    <form method="post">
+        <input type="hidden" name="book_id" value="{{ book_id }}">
+        <label>Название: <input type="text" name="title" value="{{ book.title }}" required></label><br>
+        <label>Автор: <input type="text" name="author" value="{{ book.author }}" required></label><br>
+        <label>Жанр: <input type="text" name="genre" value="{{ book.genre }}" required></label><br>
+        <label>Год: <input type="number" name="year" value="{{ book.year }}" required></label><br>
+        <label>Издательство: <input type="text" name="publisher" value="{{ book.publisher }}" required></label><br>
+        <label>Описание: <textarea name="description" required>{{ book.description }}</textarea></label><br>
+        <button type="submit">Сохранить изменения</button>
+    </form>
+    <a href="{{ url_for('profile') }}">Отменить</a>
+</form>
+</body>
+</html>

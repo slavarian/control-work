@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Поиск книг</title>
+</head>
+<body>
+    <h1>Поиск книг</h1>
+    <form method="post">
+        <label>Поиск: <input type="text" name="search_query" required></label>
+        <button type="submit">Искать</button><br>
+        <a class="btn_exit" href="{{ url_for('profile') }}">Вернуться в личный кабинет</a>
+    </form>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    {% if books %}
+                {% for book in books %}
+           <div class="block_book">
+                <h2>{{ book.title }} </h2> 
+                <h3>Автор: {{ book.author }}</h3>
+                <h3> Жанр: {{ book.genre }}</h3>
+                <h3>Год издания: {{ book.year }}</h3>
+                <h3> Редакция: {{ book.publisher }}</h3>
+                <h3>Описание: {{ book.description }}</h3>
+               
+            <div class="btn_add"><a href="{{ url_for('edit', book_id=book.id) }}" class="a1">Редактировать</a></div>
+            <div class="btn_exit"><a href="{{ url_for('delete', book_id=book.id) }}" class="a1">Удалить</a></div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
